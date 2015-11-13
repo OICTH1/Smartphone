@@ -18,7 +18,7 @@ import com.example.pizza.adpter.OrderLineListAdapter;
 
 public class MainActivity extends ActionBarActivity {
 
-	private ArrayList<JSONObject> list = null;
+	private ArrayList<OrderLine> list = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +28,11 @@ public class MainActivity extends ActionBarActivity {
 		String testJSON = "{\"id\":\"124567891234\",\"address\":\"大阪府大阪市天王寺区上本町6-8-4\"}";
 
 		ListView listView = (ListView)findViewById(R.id.orderlinelist);
-		this.list = new ArrayList<JSONObject>();
+		this.list = new ArrayList<OrderLine>();
 
-		try {
-			list.add(new JSONObject(testJSON));
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		try {
-			list.add(new JSONObject(testJSON));
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
+
+		list.add(new OrderLine("1234567890123","大阪市天王寺区上本町6-8-4"));
+
 		OrderLineListAdapter adapter = new OrderLineListAdapter(MainActivity.this);
 		adapter.setOrderLineList(list);
 		listView.setAdapter(adapter);
@@ -47,12 +40,8 @@ public class MainActivity extends ActionBarActivity {
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-				 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-				 try {
-					intent.putExtra("id", list.get(position).getString("id"));
-				} catch (JSONException e) {
-					e.printStackTrace();
-				}
+				Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+				intent.putExtra("id", list.get(position).getOrderline_id());
 				startActivity(intent);
 			}
 		});

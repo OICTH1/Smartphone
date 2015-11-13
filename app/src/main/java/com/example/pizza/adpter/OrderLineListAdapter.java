@@ -12,13 +12,14 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.pizza.OrderLine;
 import com.example.pizza.R;
 
 public class OrderLineListAdapter extends BaseAdapter {
 
 	Context context;
 	LayoutInflater layoutInflater = null;
-	ArrayList<JSONObject> OrderLineList = null;
+	ArrayList<OrderLine> OrderLineList = null;
 
 	public OrderLineListAdapter(Context context) {
 		this.context = context;
@@ -42,7 +43,7 @@ public class OrderLineListAdapter extends BaseAdapter {
 		return 0;
 	}
 
-	 public void setOrderLineList(ArrayList<JSONObject> orderLineList) {
+	 public void setOrderLineList(ArrayList<OrderLine> orderLineList) {
 		OrderLineList = orderLineList;
 	}
 	@Override
@@ -50,18 +51,11 @@ public class OrderLineListAdapter extends BaseAdapter {
 		convertView = layoutInflater.inflate(R.layout.orderlinelist,parent,false);
 
 		((TextView)convertView.findViewById(R.id.index)).setText( "" + (position + 1));
-		try {
-			String id = OrderLineList.get(position).getString("id");
+
+			String id = OrderLineList.get(position).getOrderline_id();
 			((TextView)convertView.findViewById(R.id.orderline_id)).setText(id);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
-		try {
-			String address =OrderLineList.get(position).getString("address");
+			String address =OrderLineList.get(position).getDestination();
 			((TextView)convertView.findViewById(R.id.address)).setText(address);
-		} catch (JSONException e) {
-			e.printStackTrace();
-		}
 
 
 		return convertView;
