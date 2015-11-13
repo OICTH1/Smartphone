@@ -1,6 +1,7 @@
 package com.example.pizza;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.net.Uri;
+import android.location.LocationManager;
+
 import com.example.pizza.adpter.OrderListAdpter;
 import com.example.pizza.db.OrderLineModel;
 
@@ -77,7 +80,9 @@ public class DetailActivity extends ActionBarActivity {
 		@Override
 		public void onClick(View v) {
 			if (v.getId() == R.id.search_route) {
-				String start = "東京駅";
+				GPS gps = new GPS(DetailActivity.this);
+				String here = gps.getAddress();
+				String start = here;
 				String destination = ((TextView)findViewById(R.id.destination)).getText().toString();
 
 				// 電車:r
