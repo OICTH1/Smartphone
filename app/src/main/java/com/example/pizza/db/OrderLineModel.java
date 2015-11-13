@@ -2,7 +2,10 @@ package com.example.pizza.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.pizza.OrderLine;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,9 +53,17 @@ public class OrderLineModel {
 		db.insert("ORDER",null,cv);
 	}
 
-	public ArrayList<JSONObject> getOrderLineList(){
-		ArrayList<JSONObject> list = new ArrayList<JSONObject>();
+	public ArrayList<OrderLine> getOrderLineList(){
+		ArrayList<OrderLine> list = new ArrayList<OrderLine>();
+		String sql_select = "SELECT * FROM ORDERLINE";
+		Cursor cursor = db.rawQuery(sql_select,null);
+		for (boolean next = cursor.moveToFirst(); next; next = cursor.moveToNext()) {
+			String order_id = cursor.getString(cursor.getColumnIndex("ORDER_ID"));
+			String destination = cursor.getString(cursor.getColumnIndex("DESTINATION"));
+			list.add(new OrderLine(order_id,destination));
+		}
 		return  list;
 	}
+
 }
 

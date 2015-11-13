@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.pizza.adpter.OrderListAdpter;
 
@@ -20,7 +22,7 @@ public class DetailActivity extends ActionBarActivity {
 		Intent intent = getIntent();
 		String id = intent.getStringExtra("id");
 
-		ListView listView = (ListView)findViewById(R.id.orderlist);
+
 
 		String json = "{\"id\":\"1234567890123\","
 					+ "\"customer_name\":\"山田太郎\","
@@ -54,7 +56,7 @@ public class DetailActivity extends ActionBarActivity {
 
 		OrderListAdpter adapter = new OrderListAdpter(DetailActivity.this);
 		adapter.setOrderList(list);
-		listView.setAdapter(adapter);
+
 	}
 
 	@Override
@@ -74,5 +76,20 @@ public class DetailActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void setDate(OrderDetail detail){
+		/*顧客情報*/
+		((TextView)findViewById(R.id.customer_name)).setText(detail.getCustomer_name());
+		((TextView)findViewById(R.id.customer_tel)).setText(detail.getCustomer_tel());
+
+		/*注文一覧*/
+		ListView orderList = (ListView)findViewById(R.id.orderlist);
+		OrderListAdpter adapter = new OrderListAdpter(DetailActivity.this);
+		adapter.setOrderList(detail.getOrderlist());
+		orderList.setAdapter(adapter);
+
+		/*配達先住所*/
+		((TextView)findViewById(R.id.destination)).setText(detail.getDestination());
 	}
 }

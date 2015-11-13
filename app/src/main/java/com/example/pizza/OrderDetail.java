@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Created by 44 on 2015/11/13.
  */
 public class OrderDetail {
-    private String orderline_id;
     private String customer_name;
     private String customer_tel;
     private ArrayList<Order> orderlist;
@@ -16,13 +15,13 @@ public class OrderDetail {
 
     }
 
-    public String getOrderline_id() {
-        return orderline_id;
+    public OrderDetail(String customer_name,String customer_tel,ArrayList<Order> orderlist,String destination){
+        this.customer_name = customer_name;
+        this.customer_tel = customer_tel;
+        this.orderlist = orderlist;
+        this.destination = destination;
     }
 
-    public void setOrderline_id(String orderline_id) {
-        this.orderline_id = orderline_id;
-    }
 
     public String getCustomer_name() {
         return customer_name;
