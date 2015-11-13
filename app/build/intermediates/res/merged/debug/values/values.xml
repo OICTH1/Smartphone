@@ -169,7 +169,7 @@
     <string name="customer_name">山田太郎</string>
     <string name="customer_tel">080-xxxx-xxxx</string>
     <string name="customer_title">顧客情報</string>
-    <string name="deliveryaddress">大阪市天王寺区上本町6\-8\-4</string>
+    <string name="destination">大阪市天王寺区上本町6\-8\-4</string>
     <string name="detaile_title">注文詳細</string>
     <string name="hello_world">Hello world!</string>
     <string name="index">1</string>

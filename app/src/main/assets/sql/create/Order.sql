@@ -1,8 +1,8 @@
-CREATE TABLE Order
+CREATE TABLE orderinfo
 (
 	ORDER_ID text ,
-	ORDERLINE_ID ,
+	ORDERLINE_ID text,
 	ITEM_NAME text,
-	NUM text,
+	NUM integer,
 	PRIMARY KEY(ORDER_ID,ORDERLINE_ID)
-);
+)

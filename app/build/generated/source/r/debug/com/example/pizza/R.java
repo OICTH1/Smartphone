@@ -1330,7 +1330,7 @@ containing a value of this type.
         public static final int customer_title=0x7f0b0041;
         public static final int decor_content_parent=0x7f0b002f;
         public static final int default_activity_button=0x7f0b0024;
-        public static final int deliveryaddress=0x7f0b004a;
+        public static final int destination=0x7f0b004a;
         public static final int dialog=0x7f0b001b;
         public static final int disableHome=0x7f0b000c;
         public static final int dropdown=0x7f0b001c;
@@ -1451,7 +1451,7 @@ containing a value of this type.
         public static final int customer_name=0x7f050015;
         public static final int customer_tel=0x7f050016;
         public static final int customer_title=0x7f050017;
-        public static final int deliveryaddress=0x7f050018;
+        public static final int destination=0x7f050018;
         public static final int detaile_title=0x7f050019;
         public static final int hello_world=0x7f05001a;
         public static final int index=0x7f05001b;

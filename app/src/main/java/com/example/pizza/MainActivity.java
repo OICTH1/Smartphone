@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.pizza.adpter.OrderLineListAdapter;
+import com.example.pizza.db.OrderLineModel;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -25,13 +26,24 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		String testJSON = "{\"id\":\"124567891234\",\"address\":\"大阪府大阪市天王寺区上本町6-8-4\"}";
-
 		ListView listView = (ListView)findViewById(R.id.orderlinelist);
-		this.list = new ArrayList<OrderLine>();
+		OrderLineModel orderLineModel = new OrderLineModel(MainActivity.this);
+		/*String json = "{\"ORDERLINE_ID\":\"1234567890123\","
+				+ "\"CUSTOMER_NAME\":\"山田太郎\","
+				+ "\"CUSTOMER_TEL\":\"080-xxx-xxx\","
+				+ "\"ORDER_LIST\":["
+				+ "			{\"ITEM_NAME\":\"aaaa\",\"NUM\":2},"
+				+ "			{\"ITEM_NAME\":\"bbbb\",\"NUM\":3}"
+				+ "],"
+				+ "\"DESTINATION\":\"大阪府大阪市天王寺区上本町6-8-4\"}";
+		try {
+			orderLineModel.insert(new JSONObject(json));
+		} catch (JSONException e){
+			e.printStackTrace();
+		}*/
+		this.list = orderLineModel.getOrderLineList();
 
 
-		list.add(new OrderLine("1234567890123","大阪市天王寺区上本町6-8-4"));
 
 		OrderLineListAdapter adapter = new OrderLineListAdapter(MainActivity.this);
 		adapter.setOrderLineList(list);
@@ -41,7 +53,7 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
 				Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-				intent.putExtra("id", list.get(position).getOrderline_id());
+				intent.putExtra("ORDERLINE_ID", list.get(position).getOrderline_id());
 				startActivity(intent);
 			}
 		});

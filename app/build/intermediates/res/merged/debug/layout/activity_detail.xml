@@ -105,10 +105,10 @@
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <TextView
-                android:id="@+id/deliveryaddress"
+                android:id="@+id/destination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deliveryaddress"
+                android:text="@string/destination"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
     </LinearLayout>

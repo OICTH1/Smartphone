@@ -362,7 +362,7 @@ int id customer_tel 0x7f0b0045
 int id customer_title 0x7f0b0041
 int id decor_content_parent 0x7f0b002f
 int id default_activity_button 0x7f0b0024
-int id deliveryaddress 0x7f0b004a
+int id destination 0x7f0b004a
 int id dialog 0x7f0b001b
 int id disableHome 0x7f0b000c
 int id dropdown 0x7f0b001c
@@ -475,7 +475,7 @@ int string app_name 0x7f050014
 int string customer_name 0x7f050015
 int string customer_tel 0x7f050016
 int string customer_title 0x7f050017
-int string deliveryaddress 0x7f050018
+int string destination 0x7f050018
 int string detaile_title 0x7f050019
 int string hello_world 0x7f05001a
 int string index 0x7f05001b
