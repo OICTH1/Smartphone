@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">配達一覧</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="li">・</string>
+
+    <!-- activity_main.xml -->
+    <string name="action_add">AddOrderLine</string>
+    <string name="index">1</string>
+    <string name="orderline_id">1234567891234</string>
+    <string name="address">大阪市天王寺区上本町6\-8\-4</string>
+    <string name="title_activity_add">AddActivity</string>
+    <string name="title_activity_dietail">DietailActivity</string>
+
+    <!-- order_detaile.xml -->
+    <string name="detaile_title">注文詳細</string>
+    <string name="customer_title">顧客情報</string>
+    <string name="customer_name">山田太郎</string>
+    <string name="customer_tel">080-xxxx-xxxx</string>
+    <string name="orderlist_title">注文情報</string>
+    <string name="address_title">配達先住所</string>
+    <string name="deliveryaddress">大阪市天王寺区上本町6\-8\-4</string>
+    <string name="route_title">ルート</string>
+    <string name="search_route">ルート表示</string>
+
+    <!-- order.xml -->
+    <string name="item_name">マルゲリータ</string>
+    <string name="num">3</string>
+
+
+
+
+
+</resources>
