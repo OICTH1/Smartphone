@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.example.pizza.adpter.OrderListAdpter;
+
+import java.util.ArrayList;
 
 public class DetailActivity extends ActionBarActivity {
 
@@ -13,7 +18,10 @@ public class DetailActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_detail);
 		Intent intent = getIntent();
-		String id = intent.getStringExtra( "id" );
+		String id = intent.getStringExtra("id");
+
+		ListView listView = (ListView)findViewById(R.id.orderlist);
+
 		String json = "{\"id\":\"1234567890123\","
 					+ "\"customer_name\":\"山田太郎\","
 					+ "\"customer_tel\":\"080-xxx-xxx\","
@@ -22,6 +30,31 @@ public class DetailActivity extends ActionBarActivity {
 					+ "			{\"item_name\":\"bbbb\",\"num\":3}"
 					+ "],"
 					+ "\"address\":\"大阪府大阪市天王寺区上本町6-8-4\"}";
+		ArrayList<Order> list = new ArrayList<Order>();
+		list.add(new Order("aaaaa",3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaaaaaaaaaaa", 20));
+		list.add(new Order("aaaaa",3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaaaaaaaaaaa", 20));
+		list.add(new Order("aaaaa",3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaaaaaaaaaaa", 20));
+		list.add(new Order("aaaaa",3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaaaaaaaaaaa", 20));
+		list.add(new Order("aaaaa",3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaa", 3));
+		list.add(new Order("aaaaaaaaaaaaaa", 20));
+
+		OrderListAdpter adapter = new OrderListAdpter(DetailActivity.this);
+		adapter.setOrderList(list);
+		listView.setAdapter(adapter);
 	}
 
 	@Override

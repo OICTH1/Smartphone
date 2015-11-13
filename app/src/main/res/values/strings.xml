@@ -7,14 +7,19 @@
     <string name="li">・</string>
 
     <!-- activity_main.xml -->
+    <string name="title_activity_main">配達一覧</string>
     <string name="action_add">AddOrderLine</string>
     <string name="index">1</string>
     <string name="orderline_id">1234567891234</string>
     <string name="address">大阪市天王寺区上本町6\-8\-4</string>
-    <string name="title_activity_add">AddActivity</string>
-    <string name="title_activity_dietail">DietailActivity</string>
+
+    <!-- activity_add.xml -->
+    <string name="title_activity_add">配達先追加</string>
+
+
 
     <!-- order_detaile.xml -->
+    <string name="title_activity_detaile">配達詳細情報</string>
     <string name="detaile_title">注文詳細</string>
     <string name="customer_title">顧客情報</string>
     <string name="customer_name">山田太郎</string>

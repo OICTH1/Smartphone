@@ -4,4 +4,4 @@ CREATE TABLE OrderLine
 	CUSTOMER_NAME text,
 	CUSTOMER_TEL text,
 	DESTINATION text
-)
+);

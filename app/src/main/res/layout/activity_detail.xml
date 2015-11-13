@@ -12,20 +12,15 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+          android:weightSum="1">
 
-        <TextView
-            android:id="@+id/detaile_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/detaile_title"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
+          <TextView
             android:id="@+id/customer_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/customer_title"
+            android:layout_marginBottom="4dp"
             android:textColor="#000"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -78,13 +73,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/orderlist_title"
+            android:layout_marginTop="10dp"
             android:textColor="#000"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <ListView
-            android:id="@+id/orderlist_info"
+            android:id="@+id/orderlist"
             android:layout_width="wrap_content"
-            android:layout_height="205dp" >
+            android:layout_height="167dp"
+            android:layout_weight="1.03">
         </ListView>
 
         <TextView
@@ -93,6 +90,7 @@
             android:layout_height="wrap_content"
             android:text="@string/address_title"
             android:textColor="#000"
+            android:layout_marginTop="10dp"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <LinearLayout

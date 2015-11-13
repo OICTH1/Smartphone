@@ -1,7 +1,8 @@
 CREATE TABLE Order
 (
-	ORDER_ID text PRIMARY KEY,
-	ORDERLINE_ID integer,
+	ORDER_ID text ,
+	ORDERLINE_ID ,
 	ITEM_NAME text,
-	NUM integer
-)
+	NUM text,
+	PRIMARY KEY(ORDER_ID,ORDERLINE_ID)
+);

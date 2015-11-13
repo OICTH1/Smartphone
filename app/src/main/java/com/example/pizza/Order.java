@@ -18,8 +18,8 @@ public class Order {
 		this.item_name = item_name;
 	}
 
-	public int getNum() {
-		return num;
+	public String getNum() {
+		return "" + num;
 	}
 
 	public void setNum(int num) {

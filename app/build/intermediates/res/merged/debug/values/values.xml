@@ -180,8 +180,9 @@
     <string name="orderlist_title">注文情報</string>
     <string name="route_title">ルート</string>
     <string name="search_route">ルート表示</string>
-    <string name="title_activity_add">AddActivity</string>
-    <string name="title_activity_dietail">DietailActivity</string>
+    <string name="title_activity_add">配達先追加</string>
+    <string name="title_activity_detaile">配達詳細情報</string>
+    <string name="title_activity_main">配達一覧</string>
     <!-- From: file:/C:/Users/44/StudioProjects/Smartphone1/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
