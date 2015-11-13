@@ -1,14 +1,17 @@
 package com.example.pizza;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-
+import android.net.Uri;
 import com.example.pizza.adpter.OrderListAdpter;
 import com.example.pizza.db.OrderLineModel;
 
@@ -25,6 +28,13 @@ public class DetailActivity extends ActionBarActivity {
 
 		OrderLineModel orderLineModel = new OrderLineModel(DetailActivity.this);
 		setDate(orderLineModel.getDetail(order_id));
+
+		// ボタンの取得
+		Button button1 = (Button)findViewById(R.id.search_route);
+
+		// リスナーの登録
+		button1.setOnClickListener(new RouteListener());
+
 	}
 
 	@Override
@@ -59,5 +69,30 @@ public class DetailActivity extends ActionBarActivity {
 
 		/*配達先住所*/
 		((TextView)findViewById(R.id.destination)).setText(detail.getDestination());
+	}
+
+	public class RouteListener  implements View.OnClickListener
+	{
+
+		@Override
+		public void onClick(View v) {
+			if (v.getId() == R.id.search_route) {
+				String start = "東京駅";
+				String destination = ((TextView)findViewById(R.id.destination)).getText().toString();
+
+				// 電車:r
+				//String dir = "r";
+				// 車:d
+				String dir = "d";
+				// 歩き:w
+				//String dir = "w";
+
+				Intent intent = new Intent();
+				intent.setAction(Intent.ACTION_VIEW);
+				intent.setClassName("com.google.android.apps.maps","com.google.android.maps.MapsActivity");
+				intent.setData(Uri.parse("http://maps.google.com/maps?saddr="+start+"&daddr="+destination+"&dirflg="+dir));
+				startActivity(intent);
+			}
+		}
 	}
 }
