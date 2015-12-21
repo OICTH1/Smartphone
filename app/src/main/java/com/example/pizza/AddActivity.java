@@ -6,6 +6,7 @@ import android.hardware.Camera;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.PreviewCallback;
 import android.hardware.Camera.Size;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -111,6 +112,14 @@ public class AddActivity extends Activity {
                 result = reader.decode(bitmap);
                 String text = result.getText();
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
+                               Uri.Builder builder = new Uri.Builder();
+                builder.scheme("http");
+                builder.authority("192.168.232.135");
+                builder.path("DeliverySupport/public/index.php/api/order/201512060001.json");
+                AsyncGetJson a = new AsyncGetJson(AddActivity.this);
+                a.doInBackground(builder);
+
+
             } catch (Exception e) {
                 Toast.makeText(getApplicationContext(), "Not Found", Toast.LENGTH_SHORT).show();
             }

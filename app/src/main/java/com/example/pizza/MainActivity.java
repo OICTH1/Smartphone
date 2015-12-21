@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,21 +28,14 @@ public class MainActivity extends ActionBarActivity {
 
 		ListView listView = (ListView)findViewById(R.id.orderlinelist);
 		OrderLineModel orderLineModel = new OrderLineModel(MainActivity.this);
-		/*String json = "{\"ORDERLINE_ID\":\"1234567890123\","
-				+ "\"CUSTOMER_NAME\":\"山田太郎\","
-				+ "\"CUSTOMER_TEL\":\"080-xxx-xxx\","
-				+ "\"ORDER_LIST\":["
-				+ "			{\"ITEM_NAME\":\"aaaa\",\"NUM\":2},"
-				+ "			{\"ITEM_NAME\":\"bbbb\",\"NUM\":3}"
-				+ "],"
-				+ "\"DESTINATION\":\"大阪府大阪市天王寺区上本町6-8-4\"}";
-		try {
-			orderLineModel.insert(new JSONObject(json));
-		} catch (JSONException e){
-			e.printStackTrace();
-		}*/
 		this.list = orderLineModel.getOrderLineList();
 
+		Uri.Builder builder = new Uri.Builder();
+		builder.scheme("http");
+		builder.authority("192.168.232.135");
+		builder.path("DeliverySupport/public/index.php/api/order/201512060001.json");
+		AsyncGetJson a = new AsyncGetJson(MainActivity.this);
+		a.doInBackground(builder);
 
 
 		OrderLineListAdapter adapter = new OrderLineListAdapter(MainActivity.this);
